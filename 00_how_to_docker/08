@@ -1,0 +1,7 @@
+docker run\
+    -it\
+    -d=true\
+    --rm\
+    alpine\
+
+#This will create a container from the "my-docker" image and delete the container immediately after it exits.
