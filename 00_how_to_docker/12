@@ -1,0 +1,3 @@
+docker run -d=true --restart on-failure mysql
+
+#comeback to this

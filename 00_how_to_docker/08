@@ -1,6 +1,6 @@
 docker run\
     -it\
-    -d=true\
+    -d=false\
     --rm\
     alpine\
 
