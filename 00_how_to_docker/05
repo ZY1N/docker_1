@@ -1,0 +1,2 @@
+docker run hello-world
+#or docker run -it -d hello-world for the interactive version
