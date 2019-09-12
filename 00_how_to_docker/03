@@ -1,4 +1,5 @@
 eval $(docker-machine env Char)
 #docker-machine env hooks up docker command to run against a machine
+    #aka this means that we are setting up docker to run on the docker-machine named Char
 #eval is part of POSIX- It will take an argument and construct a command of it, which will be executed by the shell.
 #note you don't really need the eval command, but it's suggested. It concatinates things
