@@ -1,0 +1,2 @@
+#https://docs.docker.com/machine/reference/rm/
+docker-machine rm -y foo

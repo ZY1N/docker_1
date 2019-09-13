@@ -1,0 +1,14 @@
+docker network create -d overlay overmind
+
+#The dockerd options that support the overlay network are:
+
+#--cluster-store
+#--cluster-store-opt
+#--cluster-advertise
+#To read more about these options and how to configure them, see “Get started with multi-host network”.
+
+#While not required, it is a good idea to install Docker Swarm to manage the cluster that makes up your network. Swarm provides sophisticated discovery and server management tools that can assist your implementation.
+
+#Once you have prepared the overlay network prerequisites you simply choose a Docker host in the cluster and issue the following to create the network:
+
+#do docker network ls
