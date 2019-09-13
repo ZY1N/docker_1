@@ -10,7 +10,7 @@
 
 #wont work for /var/lib/mysql use literally ANYTHING ELSE
 
-docker run -d --name spawning-pool -v hatchery:/var/lib/mysql --restart=on-failure:10 -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings mysql --default-authentication-plugin=mysql_native_password
+docker run -d --name spawning-pool -v hatchery:/var/lib/mysql --restart=on-failure:10 -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings mysql:5.7 --default-authentication-plugin=mysql_native_password
 
 #docker run \
  #   -d \ 
