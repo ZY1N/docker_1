@@ -1,11 +1,18 @@
-#come back to later
+# first of all run this command to get a debian container
+
 docker run -it --rm debian
-apt-get update
-sudo apt update
-sudo apt install build-essential
-sudo apt-get install manages-dev
+
+#You should first run update, then upgrade. Neither of them automatically runs the other.
+#apt-get update updates the list of available packages and their versions, but it does not install or upgrade any packages.
+#apt-get upgrade actually installs newer versions of the packages you have. After updating the lists, the package manager knows about available updates for the software you have installed. This is why you first want to update.
+
+apt-get update && apt-get upgrade
+
+#install build-essential https://packages.debian.org/sid/build-essential, gcc and make
+apt-get install -y build-essential
+
+#install git
 apt-get install -y gcc git
-apt-get update && apt-get install -y gcc git
 
 
 

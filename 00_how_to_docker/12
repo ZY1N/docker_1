@@ -1,4 +1,4 @@
-docker run -d=true --restart on-failure mysql
 
+docker run -it --network some-network --rm mysql mysql -hsome-mysql -uexample-user -p
 #comeback to this
 #Additionally, the operator can set any environment variable in the container by using one or more -e flags, even overriding those mentioned above, or already defined by the developer with a Dockerfile ENV
