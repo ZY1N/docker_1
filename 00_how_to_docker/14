@@ -1,0 +1,4 @@
+docker run -d=false --name="lair" -p 8080:80 --link spawning-pool:mysql wordpress 
+
+#for the --link command it goes containername:alias
+#you dont need an alias but it helps

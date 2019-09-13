@@ -1,4 +1,28 @@
+#docker run -d \                    #detatched aka not in the foreground
+#    --restart=on-failure:5 \       #restarts if it fails for 5 times
+#    -e MYSQL_ROOT_PASSWORD=Kerrigan \     #sets environment var MY... as Kerrigan
+#    --name spawning-pool \               #the name of the container is spawning-pool
+#    -e MYSQL_DATABASE=zerglings \        #names the database zergling
+#    -v hatchery:/var/lib/mysql \         #mounts the hatery volume as the source and links it to /var/lib/mysql
+#    #--mount source=hatchery,target=/var/lib/mysql      #this is another way
+#    mysql
 
-docker run -it --network some-network --rm mysql mysql -hsome-mysql -uexample-user -p
-#comeback to this
-#Additionally, the operator can set any environment variable in the container by using one or more -e flags, even overriding those mentioned above, or already defined by the developer with a Dockerfile ENV
+
+#wont work for /var/lib/mysql use literally ANYTHING ELSE
+
+docker run -d --name spawning-pool --restart=on-failure:10 -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings -v hatchery:/var/spool/mysql mysql --default-authentication-plugin=mysql_native_password
+
+#docker run \
+#    -d \ 
+#    --restart=on-failure:5 \
+#    -e MYSQL_ROOT_PASSWORD="Kerrigan" \
+#    --name spawning-pool \
+#    -e MYSQL_DATABASE="zerglings" \
+#    -v hatchery:/var/lib/mysql \
+#    mysql
+
+
+
+
+#Additionally, the operator can set any environment variable in the container by using 
+#one or more -e flags, even overriding those mentioned above, or already defined by the developer with a Dockerfile ENV
