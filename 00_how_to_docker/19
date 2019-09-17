@@ -1,19 +1,20 @@
 #launch container called Abathur
-docker run --name Abathur -v $HOME:/root -p 3000:3000 python:2-slim
+docker run -dit --name Abathur -v $HOME:/root -p 3000:3000 python:2-slim
 
 #install flask
 docker exec Abathur pip install Flask
 
 #put in document. exec 
-docker exec bash -c "echo 'from flask import Flask
-app = Flask(_name_)'
+docker exec -it Abathur bash -c 'echo "from flask import Flask
+app = Flask(__name__)
 
 @app.route(\"/\")
 def hello():
     return \"<h1>Hello World</h1>\"
 
 if __name__ == \"__main__\":
-    app.run(host=\"0.0.0.0\", port=3000
-"
-docker exec -e FLASK_APP=/root/app.py Abathur flask run --host=0.0.0.0 --port 3000
-# we need to set the environment for flask
+    app.run(host=\"0.0.0.0\", port=3000)
+" > /app.py'
+
+docker exec -e FLASK_APP=app.py Abathur flask run --host=0.0.0.0 --port 3000
+# we need to set the environment to be in the same place as our app.py to run

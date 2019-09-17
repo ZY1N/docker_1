@@ -1,0 +1,7 @@
+docker service create -d --network overmind --name orbital-command -e RABBITMQ_DEFAULT_USER=123 -e RABBITMQ_DEFAULT_PASS=123 rabbitmq
+
+
+
+#docker service command in a docker swarm replaces the docker run.  docker run has been built for single host solutions. Its whole idea is to focus on local containers on the system it is talking to. Whereas in a cluster the individual containers are irrelevant. We simply use swarm services to manage the multiple containers in a cluster. Swarm will orchestrate the containers of the services for us.
+
+#docker service create is mainly to be used in docker swarm mode. docker run does not have the concept of scaling up/down. With docker service create you can specify the number of replicas to be created using the --replicas command. This will create and manage multiple replicas of a containers in many different nodes. There are several such options for managing multiple containers using docker service create and other commands under docker service .. .
