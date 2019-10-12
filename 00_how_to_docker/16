@@ -1,3 +1,5 @@
 docker logs -ft spawning-pool
 
 #https://success.docker.com/article/view-realtime-container-logging
+# t is the timestamp
+# f is the follow command that runs in real time
