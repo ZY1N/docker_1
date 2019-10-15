@@ -1,2 +1,4 @@
 #https://docs.docker.com/machine/reference/rm/
-docker-machine rm -y foo
+docker-machine rm -y Aiur
+
+#the y flag say yes to all prompts
