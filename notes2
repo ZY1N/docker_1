@@ -66,16 +66,12 @@ Docker Machine is a alterntive for the docker apps. It creates a virtual environ
             remove docker machine. WARNING: will remove all contai­ners, images and cache
         env machin­eName
             show current IP and all info
+        eval "­$(d­ock­er-­machine env machin­eNa­me)­"
+            Link terminal TAB to use current Docker machine on "­doc­ker­" and "­doc­ker­-co­mpo­se" commands. Can be added to .bash_­profile
         docker rm -f $(sudo docker ps -a -q)
             Removes all containers at once
         docker-machine ip Char 
             finds ip address
-
-        eval "­$(d­ock­er-­machine env machin­eNa­me)­"
-            - Link terminal TAB to use current Docker machine on "­doc­ker­" and "­doc­ker­-co­mpo­se" commands. Can be added to .bash_­profile
-            - the main thing this does is to change the environment varaibles describing what environment we are working in
-                - this is what tells bash to work with the docker environment that we created(don't worry its recomplied everytime bash is run)
-                - the 4 paths that are unset and changed are: the tls verification, hostip, certificate path,, and machine name
 
     Save changes to container: make a new container to bet put on dockerhub or exported someother way 
         docker commit <cointerid> <nameforimage>
