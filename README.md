@@ -1,0 +1,137 @@
+# docker_1
+The Docker-1 project is to handle docker and docker-machine, the bases to understand the idea of containerization of services.
+
+What is Docker?
+Docker is a high level tool to interface with LXC containers, which are os level virtualization method for running isolated linux systems.
+    to install: brew install docker 
+    to link: brew link docker
+
+    Why:
+        It's useful because you can port the entire image/environment over to someone else and even if they don't have the same versions of app/tools downloaded they will have no problem using your software.
+    
+    Cheatsheet:
+        docker --versions               find version of docker
+        docker pull ubnutu              pull images form dockerhub
+        docker images                   show all images on machine
+        docker run imagename            spins up and creates a container form image
+        docker run -it -d imagename     runs container on interactive mode with daemon on persistant mode
+        docker ps                       shows running containers
+        docker stop containerid         stops the container
+        docker ps -a                    shows all containers running or stoped
+        docker exec -it dockerid bash   go into container and run bash
+        exit                            get out of the root
+        docker kill containerid         force quits the contaienr even with app running in it
+        docker rm containerid           delete the container from system
+        docker rm img-id                removes image from container
+
+    Lifecycle of a docker container:
+        1. You pull an image from dockerhub (docker pull imagename)
+        2. The docker engine turns the docker image into containers (docker run imagename)
+        3. You can run the container (docker run)
+        4. You can stop the container (docker stop) THE REAL FUN IS HERE
+            -you can get access to the commandline of the container (docker exec -t dockerid bash)
+            -run your app/tests, etc.
+        5. You can delete the container (docker rm)
+
+
+What is Docker Machine?
+Docker Machine is a alterntive for the docker apps. It creates a virtual environment with a linux based distro in order to host containers.
+
+    Why?
+        In MACOS and Windows OS we don't have direct compatibility with linux. Yes... even mac because its based on BSD and not truely linux.
+        
+        What does this mean?
+            Although both based on Unix, the difference is on the kernal level, the layer that is between os level apps and the hardware. Aka it just doesn't talk the same way to hardware.
+
+            Slightly more technical exmplnation:
+                Linux is a kernal, while BSD is a kernal + os. In order to make linux a os you need to add your own GNU, interface, etc. BSD is made by one developer.
+    
+    What does it mean?
+        We need to spin up a linux distro on our macs to be the host os of our docker containers (aka we need virtualbox). It runs on hyperkit, which is a hypervisor (or hyper-v for windows). 
+    
+    How to do it?
+        docker-machine create --driver virtualbox nameofmachine
+        docker-machine env Char
+        follow the instructions
+
+    Cheatsheet       
+        create --driver driverName machinename
+            Create docker machine named machinename (driver name is virtualbox or some other driver software)
+        create --driver virtualbox --virt­ual­box­-memory 2048 demo
+            Create docker machine "­demo" on virtualBox with 2048 mb RAM
+        start machinename
+            start virtualbox docker machine
+        stop machin­ename
+            stop docker machine
+        restart machin­ename
+            restart docker machine
+        rm machin­ename
+            remove docker machine. WARNING: will remove all contai­ners, images and cache
+        env machin­eName
+            show current IP and all info
+        docker rm -f $(sudo docker ps -a -q)
+            Removes all containers at once
+        docker-machine ip Char 
+            finds ip address
+
+        eval "­$(d­ock­er-­machine env machin­eNa­me)­"
+            - Link terminal TAB to use current Docker machine on "­doc­ker­" and "­doc­ker­-co­mpo­se" commands. Can be added to .bash_­profile
+            - the main thing this does is to change the environment varaibles describing what environment we are working in
+                - this is what tells bash to work with the docker environment that we created(don't worry its recomplied everytime bash is run)
+                - the 4 paths that are unset and changed are: the tls verification, hostip, certificate path,, and machine name
+
+    Save changes to container: make a new container to bet put on dockerhub or exported someother way 
+        docker commit <cointerid> <nameforimage>
+        docker commit contid username/imgname
+    Push to dockerhub
+        docker login
+        docker push name/imgname
+
+What is Dockerfile?
+    text document that you put commands that you want to execute all at once upon call of image spinup
+
+    "
+    FROM ubuntu
+    ADD ./var/www/html             (add files)
+    ADD <source><destination in container>
+    RUN ap-get sl                   (run any commands to add layers to base image by installing components, on terminal)
+    COMD                            (run any command at the start of container, only run with no DOCKER RUN arguments)
+    ENTRYPOINT                      (will run regardless of DOCKER RUN arguments)
+    ENV nameofvar valueofvar        (creates variables)
+    "
+
+    docker build . -t new_dockerfile (. is path to dockerfile)
+
+Docker Volumes: 
+    used to persist data across lifetime of container, hosts storage outside of the contaienr and maps it into the container
+    entities stored by docker
+
+    docker volume create test
+    docker volume ls
+    docker run -t --mount source=<name_of_volume>, target=<where_you_want_to_mount_ it> -d <image_name>
+    docker cp ./file containerid:/wheretostoreindocker 
+    share between more than 1 container
+
+
+Bi-Mount- similar to docker volumes
+docker run -it -V /home/location_of_folder:mount_point_in_container -d ubuntu
+- will only work if same file system
+    - errors between mac/pc 
+
+Monolithic application
+    - application with different componets in one platform
+Microservices 
+    - software dev archeticture that is collection of loosely coupled services
+
+Docker compose
+    So you don't have to make script to run Although
+    create and run multiple container docker applications
+    write YAML file with config of containers
+
+    docker-compose up -d  *must be in same directory
+
+Docker Swarm
+all your containers will be monitered by docker, container orchestration
+clustering and scheduling tool, monitor health of containers
+
+one leader and multiple workers, and each worker runs containers
