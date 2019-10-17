@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    22                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yinzhang <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/17 12:22:12 by yinzhang          #+#    #+#              #
+#    Updated: 2019/10/17 12:22:14 by yinzhang         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #docker swarm join --token SWMTKN-1-5ysmwn77v8nagysgxkvzj8enu6awmzqrogkgy1612z6hedg1n8-cwpo7zbmg0p261npql6u6tstn 192.168.99.100:2377
 # port 2377 is for docker swarm, tcp protocol
 

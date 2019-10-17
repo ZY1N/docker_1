@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    12                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yinzhang <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/17 12:21:14 by yinzhang          #+#    #+#              #
+#    Updated: 2019/10/17 12:21:16 by yinzhang         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #docker run -d \                    #detatched aka not in the foreground
 #    --restart=on-failure:5 \       #restarts if it fails for 5 times
 #    -e MYSQL_ROOT_PASSWORD=Kerrigan \     #sets environment var MY... as Kerrigan

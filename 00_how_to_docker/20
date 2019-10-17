@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    20                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yinzhang <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/17 12:22:03 by yinzhang          #+#    #+#              #
+#    Updated: 2019/10/17 12:22:04 by yinzhang         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 docker swarm init --advertise-addr $(docker-machine ip Char)
 
 #--advertise-addr flag configures manager node to publish its address as 192.168.99.100

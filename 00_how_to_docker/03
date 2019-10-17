@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    03                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yinzhang <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/17 12:19:00 by yinzhang          #+#    #+#              #
+#    Updated: 2019/10/17 12:19:08 by yinzhang         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 eval $(docker-machine env Char)
 #docker-machine env hooks up docker command to run against a machine
     #aka this means that we are setting up docker to run on the docker-machine named Char

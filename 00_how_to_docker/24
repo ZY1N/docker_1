@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    24                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yinzhang <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/17 12:22:22 by yinzhang          #+#    #+#              #
+#    Updated: 2019/10/17 12:22:23 by yinzhang         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 docker service create -d --network overmind --name orbital-command -e RABBITMQ_DEFAULT_USER=123 -e RABBITMQ_DEFAULT_PASS=123 rabbitmq
 
 
